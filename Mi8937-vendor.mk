@@ -8,7 +8,11 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/fingerprint/land/vendor/,$(TARGET_COPY_OUT_VENDOR)/) \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/fingerprint/prada/vendor/,$(TARGET_COPY_OUT_VENDOR)/) \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/fingerprint/santoni/vendor/,$(TARGET_COPY_OUT_VENDOR)/) \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/fingerprint/santoni/vendor/,$(TARGET_COPY_OUT_VENDOR)/)
+
+ifneq ($(MI8937_EXCLUDE_STOCK_CAMERA_BLOBS),true)
+PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/camera/land/vendor/,$(TARGET_COPY_OUT_VENDOR)/) \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/camera/prada/vendor/,$(TARGET_COPY_OUT_VENDOR)/) \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/camera/ulysse/vendor/,$(TARGET_COPY_OUT_VENDOR)/)
+endif
